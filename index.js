@@ -59,6 +59,15 @@ async function busca() {
         driver.findElement(By.xpath("//input[@class='btn uiColorButton']")).click()
      }
     
+     let xpath = "//div[@class='congratulations col s8 m8 l8']"
+     await driver.wait(until.elementLocated({xpath: xpath}), 10000)
+     
+     const encodedString = await driver.takeScreenshot()
+     fs.writeFileSync('./result.png', encodedString, 'base64')
+
+     await driver.executeScript('window.scrollTo(0, 0)')
+
+     //await driver.quit()
 }
 
 busca()
