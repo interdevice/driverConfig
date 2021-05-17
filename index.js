@@ -81,4 +81,4 @@ async function busca() {
 
 }
 
-busca()
+download()
